@@ -109,7 +109,7 @@
                 .join(' ');
             document.getElementById('paintingName').textContent = `About ${formatted}`;
         }
-        
+       
         // Handle form submission
         document.getElementById('feedbackForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -118,8 +118,7 @@
                 painting: paintingName,
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
-                rating: document.getElementById('rating').value,
-                thoughts: document.getElementById('thoughts').value,
+                message: document.getElementById('message').value, // FIXED: was 'thoughts'
                 timestamp: new Date().toISOString()
             };
             
@@ -127,7 +126,7 @@
             
             // Here you would send to your backend
             // For now, just show success and redirect
-            alert('Thank you for your feedback!');
+            alert('Thank you for your message!');
             window.location.href = '../index.html';
         });
     </script>

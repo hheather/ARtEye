@@ -1,51 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AR Gallery</title>
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="js/cam.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <!-- Camera selector UI -->
-    <div style="position: absolute; top: 10px; left: 10px; z-index: 1000; background: white; padding: 10px;">
-        <label>Select Camera:</label>
-        <select id="cameraSelect"></select>
-        <button onclick="switchCamera()">Switch</button>
-    </div>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1, maximum-scale=1">
+        <title>encantar.js WebAR demo</title>
+        <script src="encantar.js"></script>
+        <script src="js/markers.js"></script>
+        <script src="js/ui-controller.js"></script>
+        <script src="js/encantar-demo.js"></script>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
 
-    <a-scene
-        embedded
-        arjs="sourceType: webcam; debugUIEnabled: false;"
-        vr-mode-ui="enabled: false">
-        
-        <!-- Hiro = Painting 1 -->
-        <a-marker preset="hiro" id="painting1" registerevents></a-marker>
-
-        <a-entity camera></a-entity>
-    </a-scene>
+    <body>
+        <div id="ar-viewport"></div>
+        <img id="painting1" src="assets/images/painting1.jpeg" hidden>
+        <img id="painting2" src="assets/images/painting2.jpeg" hidden>
+        <img id="painting3" src="assets/images/painting3.jpeg" hidden>
+        <img id="painting4" src="assets/images/painting4.jpeg" hidden>
+        <img id="painting5" src="assets/images/painting5.jpeg" hidden>
     
-    <!-- Info Card -->
-    <div id="infoCard" class="info-card hidden">
-        <button class="close-btn" onclick="closeInfoCard()">×</button>
-        <div class="card-content">
+        <!-- Info Card (hidden by default) -->
+        <div id="infoCard" class="hidden">
+            <button id="closeCard" onclick="closeInfoCard()">×</button>
+            
             <img id="paintingImage" src="" alt="Painting">
-            <h2 id="paintingTitle"></h2>
-            <p id="paintingArtist"></p>
-            <p id="paintingDescription"></p>
-            <button class="cta-btn" onclick="goToForm()">Contact Sales</button>
+            
+            <h2 id="title"></h2>
+            <p class="artist" id="artist"></p>
+            <p class="description" id="description"></p>
+            
+            <button id="formButton" onclick="goToForm()">Contact Us</button>
         </div>
-    </div>
-    
-    <div id="loadingScreen" class="loading-screen">
-        <p>Point your camera at a marker</p>
-    </div>
-    
-    <script src="js/markers.js"></script>
-    <script src="js/ui-controller.js"></script>
-    <script src="js/app.js"></script>
-</body>
+
+    </body>
 </html>

@@ -3,22 +3,22 @@ let currentPainting = null;
 // Show info card with painting data
 function showInfoCard(markerId) {
     const data = paintingData[markerId];
-    if (!data) return;
+    if (!data) {
+        console.error('No data found for:', markerId);
+        return;
+    }
     
     currentPainting = data;
     
-    // Update card content
-    document.getElementById('paintingTitle').textContent = data.title;
-    document.getElementById('paintingArtist').textContent = data.artist;
-    document.getElementById('paintingDescription').textContent = data.description;
-    document.getElementById('paintingImage').src = data.image;
+    // Update card content - IDs match your HTML
+    document.getElementById('title').textContent = data.title;
+    document.getElementById('artist').textContent = data.artist;
+    document.getElementById('description').textContent = data.description;
+    document.getElementById('paintingImage').src = data.image; // FIXED: was 'image'
     
     // Show card
     const card = document.getElementById('infoCard');
     card.classList.remove('hidden');
-    
-    // Hide loading screen
-    document.getElementById('loadingScreen').style.display = 'none';
 }
 
 // Close info card
