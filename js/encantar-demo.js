@@ -2,12 +2,8 @@ let currentSession = null;
 let selectedDeviceId = null;
 
 window.onload = async function() {
-    // First, populate the camera dropdown
     await populateCameraSelect();
-
-    // Start AR with default camera
     await initAR();
-
 };
 
 async function populateCameraSelect() {
