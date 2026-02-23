@@ -4,6 +4,7 @@ let selectedDeviceId = null;
 window.onload = async function() {
     await populateCameraSelect();
     await initAR();
+    
 };
 
 async function populateCameraSelect() {
