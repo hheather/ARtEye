@@ -1,25 +1,13 @@
 let currentSession = null;
-let selectedDeviceId = null;
 
 window.onload = async function() {
-    await selectCamera();
+    await requestCameraPermission();
     await initAR();
 };
 
-async function selectCamera() {
-    // Request permission to see device labels
+async function requestCameraPermission() {
+    // Request permission before starting AR
     const tempStream = await navigator.mediaDevices.getUserMedia({ video: true });
-
-    const devices = await navigator.mediaDevices.enumerateDevices();
-    const cameras = devices.filter(d => d.kind === 'videoinput');
-
-    // Prefer continuity camera if available
-    const continuityCam = cameras.find(c => c.label.includes('heather'));
-    selectedDeviceId = continuityCam
-        ? continuityCam.deviceId
-        : cameras[0]?.deviceId;
-
-    // CRITICAL: Stop the temporary stream before starting AR
     tempStream.getTracks().forEach(track => track.stop());
 }
 
@@ -60,7 +48,7 @@ async function startARSession() {
 
     const videoStream = await navigator.mediaDevices.getUserMedia({
         video: {
-            deviceId: { exact: selectedDeviceId },
+            facingMode: 'environment',
             width: { ideal: 1920 },
             height: { ideal: 1080 }
         }
