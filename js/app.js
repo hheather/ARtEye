@@ -74,6 +74,8 @@ async function startARSession() {
         viewport: viewport,
         trackers: [tracker],
         sources: [source],
+        // stats: true,
+        gizmos: true,
     });
 
     return session;

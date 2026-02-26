@@ -35,8 +35,8 @@ body {
 
 #scanFrame {
     position: relative;
-    width: 70%;
-    height: 70%;
+    width: 30em;
+    height: 30em;
     animation: scan-pulse 2s ease-in-out infinite;
 }
 
