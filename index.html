@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1, maximum-scale=1">
-        <title>encantar.js WebAR demo</title>
+        <title>ARtEye</title>
         <script src="encantar.js"></script>
         <script src="js/markers.js"></script>
         <script src="js/ui-controller.js"></script>
-        <script src="js/encantar-demo.js"></script>
+        <script src="js/app.js"></script>
         <link rel="stylesheet" href="css/styles.css">
     </head>
 
@@ -19,17 +19,30 @@
         <img id="painting4" src="assets/images/painting4.jpeg" hidden>
         <img id="painting5" src="assets/images/painting5.jpeg" hidden>
     
+        <!-- Scan Overlay -->
+        <div id="scanOverlay">
+            <div id="scanFrame">
+                <span class="corner tl"></span>
+                <span class="corner tr"></span>
+                <span class="corner bl"></span>
+                <span class="corner br"></span>
+            </div>
+            <p id="scanHint">Hold camera close to artwork</p>
+        </div>
+
         <!-- Info Card (hidden by default) -->
-        <div id="infoCard" class="hidden">
-            <button id="closeCard" onclick="closeInfoCard()">×</button>
-            
-            <img id="paintingImage" src="" alt="Painting">
-            
-            <h2 id="title"></h2>
-            <p class="artist" id="artist"></p>
-            <p class="description" id="description"></p>
-            
-            <button id="formButton" onclick="goToForm()">Contact Us</button>
+        <div id="infoCard" class="info-card hidden">
+            <button id="closeCard" class="close-btn" onclick="closeInfoCard()">×</button>
+
+            <div class="card-content">
+                <img id="paintingImage" src="" alt="Painting">
+
+                <h2 id="title"></h2>
+                <p class="artist" id="artist"></p>
+                <p class="description" id="description"></p>
+
+                <button id="formButton" class="cta-btn" onclick="goToForm()">Contact Us</button>
+            </div>
         </div>
 
     </body>

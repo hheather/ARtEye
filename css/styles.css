@@ -4,6 +4,70 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
 }
 
+#ar-viewport {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Scan Overlay */
+#scanOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000000001;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+#scanOverlay.hidden {
+    opacity: 0;
+}
+
+#scanFrame {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    animation: scan-pulse 2s ease-in-out infinite;
+}
+
+.corner {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-color: white;
+    border-style: solid;
+    border-radius: 3px;
+}
+
+.corner.tl { top: 0;    left: 0;  border-width: 3px 0 0 3px; }
+.corner.tr { top: 0;    right: 0; border-width: 3px 3px 0 0; }
+.corner.bl { bottom: 0; left: 0;  border-width: 0 0 3px 3px; }
+.corner.br { bottom: 0; right: 0; border-width: 0 3px 3px 0; }
+
+@keyframes scan-pulse {
+    0%, 100% { transform: scale(1);    opacity: 1;   }
+    50%       { transform: scale(1.06); opacity: 0.5; }
+}
+
+#scanHint {
+    margin-top: 28px;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+}
+
 /* Info Card Styles */
 .info-card {
     position: fixed;
@@ -16,7 +80,7 @@ body {
     padding: 20px;
     max-height: 70vh;
     overflow-y: auto;
-    z-index: 1000;
+    z-index: 1000000002;
     transition: transform 0.3s ease-in-out;
     transform: translateY(0);
 }
@@ -91,21 +155,6 @@ body {
 
 .cta-btn:active {
     transform: scale(0.98);
-}
-
-/* Loading Screen */
-.loading-screen {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 20px 40px;
-    border-radius: 10px;
-    font-size: 18px;
-    z-index: 999;
-    text-align: center;
 }
 
 /* Mobile responsiveness */

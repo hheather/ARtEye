@@ -14,9 +14,10 @@ function showInfoCard(markerId) {
     document.getElementById('title').textContent = data.title;
     document.getElementById('artist').textContent = data.artist;
     document.getElementById('description').textContent = data.description;
-    document.getElementById('paintingImage').src = data.image; // FIXED: was 'image'
+    document.getElementById('paintingImage').src = data.image;
     
-    // Show card
+    // Hide scan overlay and show card
+    document.getElementById('scanOverlay').classList.add('hidden');
     const card = document.getElementById('infoCard');
     card.classList.remove('hidden');
 }
@@ -24,6 +25,7 @@ function showInfoCard(markerId) {
 // Close info card
 function closeInfoCard() {
     document.getElementById('infoCard').classList.add('hidden');
+    document.getElementById('scanOverlay').classList.remove('hidden');
     currentPainting = null;
 }
 
