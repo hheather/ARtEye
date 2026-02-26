@@ -2,12 +2,14 @@ let currentPainting = null;
 
 // Show info card with painting data
 function showInfoCard(markerId) {
+    if (currentPainting) return; // targetfound fires every frame — only act once
+
     const data = paintingData[markerId];
     if (!data) {
         console.error('No data found for:', markerId);
         return;
     }
-    
+
     currentPainting = data;
     
     document.getElementById('title').textContent = data.title;

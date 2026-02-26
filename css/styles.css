@@ -33,32 +33,6 @@ body {
     opacity: 0;
 }
 
-#scanFrame {
-    position: relative;
-    width: 30em;
-    height: 30em;
-    animation: scan-pulse 2s ease-in-out infinite;
-}
-
-.corner {
-    position: absolute;
-    width: 36px;
-    height: 36px;
-    border-color: white;
-    border-style: solid;
-    border-radius: 3px;
-}
-
-.corner.tl { top: 0;    left: 0;  border-width: 3px 0 0 3px; }
-.corner.tr { top: 0;    right: 0; border-width: 3px 3px 0 0; }
-.corner.bl { bottom: 0; left: 0;  border-width: 0 0 3px 3px; }
-.corner.br { bottom: 0; right: 0; border-width: 0 3px 3px 0; }
-
-@keyframes scan-pulse {
-    0%, 100% { transform: scale(1);    opacity: 1;   }
-    50%       { transform: scale(1.06); opacity: 0.5; }
-}
-
 #scanHint {
     margin-top: 28px;
     color: white;
@@ -132,7 +106,7 @@ body {
 }
 
 .cta-btn {
-    background: #4CC3D9;
+    background: #000;
     color: white;
     border: none;
     padding: 15px 30px;
@@ -150,7 +124,7 @@ body {
 }
 
 .cta-btn:hover {
-    background: #3BADC4;
+    background: #000;
 }
 
 .cta-btn:active {
@@ -161,7 +135,7 @@ body {
 #welcomeScreen {
     position: fixed;
     inset: 0;
-    background: #0a0a12;
+    background: #0d0d0d;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -193,7 +167,7 @@ body {
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #4CC3D9;
+    color: #000;
     margin: 0 0 36px;
 }
 
