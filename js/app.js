@@ -1,9 +1,10 @@
 let currentSession = null;
 
-window.onload = async function() {
+async function startExperience() {
+    document.getElementById('welcomeScreen').classList.add('hidden');
     await requestCameraPermission();
     await initAR();
-};
+}
 
 async function requestCameraPermission() {
     // Request permission before starting AR

@@ -157,6 +157,53 @@ body {
     transform: scale(0.98);
 }
 
+/* Welcome Screen */
+#welcomeScreen {
+    position: fixed;
+    inset: 0;
+    background: #0a0a12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000000003;
+    transition: opacity 0.5s ease;
+}
+
+#welcomeScreen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.welcome-content {
+    text-align: center;
+    padding: 40px 32px;
+    max-width: 360px;
+}
+
+.welcome-title {
+    font-size: 52px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -1.5px;
+    margin: 0 0 6px;
+}
+
+.welcome-subtitle {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #4CC3D9;
+    margin: 0 0 36px;
+}
+
+.welcome-description {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0 0 44px;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .info-card {

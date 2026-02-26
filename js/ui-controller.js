@@ -10,16 +10,16 @@ function showInfoCard(markerId) {
     
     currentPainting = data;
     
-    // Update card content - IDs match your HTML
     document.getElementById('title').textContent = data.title;
     document.getElementById('artist').textContent = data.artist;
     document.getElementById('description').textContent = data.description;
     document.getElementById('paintingImage').src = data.image;
-    
-    // Hide scan overlay and show card
-    document.getElementById('scanOverlay').classList.add('hidden');
-    const card = document.getElementById('infoCard');
-    card.classList.remove('hidden');
+
+    // Defer reveal to next frame so content is committed before the slide-in begins
+    requestAnimationFrame(() => {
+        document.getElementById('scanOverlay').classList.add('hidden');
+        document.getElementById('infoCard').classList.remove('hidden');
+    });
 }
 
 // Close info card
