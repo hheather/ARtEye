@@ -135,7 +135,7 @@ body {
 #welcomeScreen {
     position: fixed;
     inset: 0;
-    background: #0d0d0d;
+    background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -157,7 +157,7 @@ body {
 .welcome-title {
     font-size: 52px;
     font-weight: 800;
-    color: white;
+    color: #000;
     letter-spacing: -1.5px;
     margin: 0 0 6px;
 }
@@ -172,7 +172,7 @@ body {
 }
 
 .welcome-description {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgb(87, 87, 87);
     font-size: 16px;
     line-height: 1.7;
     margin: 0 0 44px;
