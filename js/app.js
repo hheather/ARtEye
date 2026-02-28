@@ -69,6 +69,14 @@ async function startARSession() {
         { name: 'painting3', image: document.getElementById('painting3') },
         { name: 'painting4', image: document.getElementById('painting4') },
         { name: 'painting5', image: document.getElementById('painting5') },
+        { name: 'painting6', image: document.getElementById('painting6') },
+        { name: 'painting7', image: document.getElementById('painting7') },
+        { name: 'painting8', image: document.getElementById('painting8') },
+        { name: 'painting9', image: document.getElementById('painting9') },
+        { name: 'painting10', image: document.getElementById('painting10') },
+        { name: 'painting11', image: document.getElementById('painting11') },
+        { name: 'painting12', image: document.getElementById('painting12') },
+        { name: 'painting13', image: document.getElementById('painting13') },
     ]);
 
     tracker.addEventListener('targetfound', event => {
