@@ -1,6 +1,12 @@
 let currentSession = null;
 let arStarted = false;
 
+let currentVideoTrack = null;
+let zoomLevel = 1;
+let zoomMin = 1;
+let zoomMax = 1;
+let zoomStep = 0.5;
+
 async function startExperience() {
     if (arStarted) return;
     arStarted = true;
@@ -22,11 +28,33 @@ async function requestCameraPermission() {
 
 async function initAR() {
     currentSession = await startARSession();
+    initZoomControl();
 
     function animate(_time, _frame) {
         currentSession.requestAnimationFrame(animate);
     }
     currentSession.requestAnimationFrame(animate);
+}
+
+function initZoomControl() {
+    const capabilities = currentVideoTrack?.getCapabilities?.();
+    if (!capabilities?.zoom) {
+        document.getElementById('zoomControl').hidden = true;
+        return;
+    }
+
+    zoomMin = capabilities.zoom.min;
+    zoomMax = capabilities.zoom.max;
+    zoomStep = (zoomMax - zoomMin) / 10;
+    zoomLevel = zoomMin;
+
+    document.getElementById('zoomLevel').textContent = `${zoomLevel.toFixed(1)}×`;
+}
+
+function adjustZoom(direction) {
+    zoomLevel = Math.max(zoomMin, Math.min(zoomMax, zoomLevel + direction * zoomStep));
+    currentVideoTrack.applyConstraints({ advanced: [{ zoom: zoomLevel }] }).catch(() => {});
+    document.getElementById('zoomLevel').textContent = `${zoomLevel.toFixed(1)}×`;
 }
 
 async function startARSession() {
@@ -58,6 +86,8 @@ async function startARSession() {
             height: { ideal: 1080 }
         }
     });
+
+    currentVideoTrack = videoStream.getVideoTracks()[0];
 
     const video = document.createElement('video');
     video.setAttribute('playsinline', '');

@@ -13,11 +13,19 @@
 
     <body>
         <div id="ar-viewport"></div>
-        <img id="painting1" src="assets/images/painting1.jpeg" hidden>
-        <img id="painting2" src="assets/images/painting2.jpeg" hidden>
-        <img id="painting3" src="assets/images/painting3.jpeg" hidden>
-        <img id="painting4" src="assets/images/painting4.jpeg" hidden>
-        <img id="painting5" src="assets/images/painting5.jpeg" hidden>
+        <img id="painting1" src="assets/images/1.jpeg" hidden>
+        <img id="painting2" src="assets/images/2.jpeg" hidden>
+        <img id="painting3" src="assets/images/3.jpeg" hidden>
+        <img id="painting4" src="assets/images/4.jpeg" hidden>
+        <img id="painting5" src="assets/images/5.jpeg" hidden>
+        <img id="painting6" src="assets/images/6.jpeg" hidden>
+        <img id="painting7" src="assets/images/7.jpeg" hidden>
+        <img id="painting8" src="assets/images/8.jpeg" hidden>
+        <img id="painting9" src="assets/images/9.jpeg" hidden>
+        <img id="painting10" src="assets/images/10.jpeg" hidden>
+        <img id="painting11" src="assets/images/11.jpeg" hidden>
+        <img id="painting12" src="assets/images/12.jpeg" hidden>
+        <img id="painting13" src="assets/images/13.jpeg" hidden>
     
         <!-- Welcome Screen -->
         <div id="welcomeScreen">
@@ -31,12 +39,11 @@
 
         <!-- Scan Overlay -->
         <div id="scanOverlay">
-            <!-- <div id="scanFrame">
-                <span class="corner tl"></span>
-                <span class="corner tr"></span>
-                <span class="corner bl"></span>
-                <span class="corner br"></span>
-            </div> -->
+            <div id="zoomControl">
+                <button onclick="adjustZoom(1)">+</button>
+                <span id="zoomLevel">1×</span>
+                <button onclick="adjustZoom(-1)">−</button>
+            </div>
             <p id="scanHint">Fill the frame with the artwork</p>
         </div>
 
